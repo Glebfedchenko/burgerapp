@@ -2,7 +2,7 @@ import React from 'react';
 import Control from './Control';
 
 
-const BuildControls = ({ added,removed, price }) => {
+const BuildControls = ({ added, removed, price, disabled, purchasable, toggle}) => {
     const controls = [
         { label: 'Salad', type: 'salad' },
         { label: 'Bacon', type: 'bacon' },
@@ -17,9 +17,14 @@ const BuildControls = ({ added,removed, price }) => {
                 <Control
                     key={c.label}
                     label={c.label}
-                    added={()=>added(c.type)}
-                    removed={()=>removed(c.type)}
-                    />)}
+                    added={() => added(c.type)}
+                    removed={() => removed(c.type)}
+                    disabled={disabled[c.type]}
+                />)}
+            <button
+                className='OrderButton'
+                disabled={!purchasable}
+                onClick={toggle}>ORDER NOW</button>
         </div>
     )
 }
