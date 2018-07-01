@@ -1,12 +1,13 @@
-import React from 'react'
-import Layout from './Layout'
+import React from 'react';
+import Layout from './Layout/index';
 
-import BurgerBuilder from './BurgerBuilder'
+import BurgerBuilder from './Burger/BurgerBuilder';
 
-const App = () =>
-    <div>
-        <Layout>
-            <BurgerBuilder />
-        </Layout>
-    </div>
-export default App
+const App = () => (
+  <div>
+    <Layout>
+      <BurgerBuilder />
+    </Layout>
+  </div>
+);
+export default App;

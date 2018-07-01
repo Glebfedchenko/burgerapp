@@ -1,0 +1,21 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import Wrapper from '../../hoc/Wrapper';
+import Backdrop from '../Backdrop';
+
+const Modal = ({ children, show, modalClosed }) => (
+  <Wrapper>
+    <Backdrop show={show} clicked={modalClosed} />
+    <div className={show ? 'Modal' : 'ModalActive'}>
+      {children}
+    </div>
+  </Wrapper>
+);
+
+Modal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  modalClosed: PropTypes.func.isRequired,
+  children: PropTypes.any.isRequired,
+};
+
+export default Modal;
