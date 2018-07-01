@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Wrapper from '../../hoc/Wrapper';
+import Wrapper from '../Wrapper';
+import Button from '../Button';
 
 const OrderSummary = ({
   ingredients, canceled, continued, price,
@@ -34,12 +35,12 @@ A burger with the following ingredients
       <p>
 Continue to Checkout?
       </p>
-      <button type="button" className="Success" onClick={canceled}>
+      <Button btnType="Danger" clicked={canceled}>
         CANCEL
-      </button>
-      <button type="button" className="Danger" onClick={continued}>
+      </Button>
+      <Button btnType="Success" clicked={continued}>
         CONTINUE
-      </button>
+      </Button>
     </Wrapper>
   );
 };

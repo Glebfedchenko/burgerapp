@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Wrapper from '../../hoc/Wrapper';
+import Wrapper from '../Wrapper';
 import Burger from './Burger';
 import BuildControls from '../BuildControls';
 import Modal from '../Modal';
@@ -26,14 +26,14 @@ export default class BurgerBuilder extends Component {
 
   updatePurchase = (ingredients) => {
     const sum = Object.keys(ingredients)
-      .map(igKey => ingredients[igKey])
+      .map(igKey => ingredients[igKey]) // eslint-disable-next-line
       .reduce((sum, el) => sum + el, 0);
     this.setState({ purchasable: sum > 0 });
   };
 
   addIngredient = (type) => {
     const oldCount = this.state.ingredients[type];
-    const updatedCount = oldCount + 1;
+    const updatedCount = oldCount + 1; // eslint-disable-next-line
     const updatedIngredients = { ...this.state.ingredients };
     updatedIngredients[type] = updatedCount;
     const addPrice = PRICES[type];
@@ -48,7 +48,7 @@ export default class BurgerBuilder extends Component {
     if (oldCount <= 0) {
       return;
     }
-    const updatedCount = oldCount - 1;
+    const updatedCount = oldCount - 1; // eslint-disable-next-line
     const updatedIngredients = { ...this.state.ingredients };
     updatedIngredients[type] = updatedCount;
     const deductPrice = PRICES[type];
@@ -66,14 +66,12 @@ export default class BurgerBuilder extends Component {
     this.setState({ active: false });
   };
 
-  continuePurchase = () => {
-    alert(yo);
-  };
+  continuePurchase = () => {};
 
   render() {
     const disabledInfo = {
       ...this.state.ingredients,
-    };
+    }; // eslint-disable-next-line
     for (const key in disabledInfo) {
       disabledInfo[key] = disabledInfo[key] <= 0;
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Toggle = ({ clicked }) => (
-  <div role="button" onClick={() => {}} onKeyPress={clicked} className="DrawerToggle">
+  <div role="button" onKeyPress={() => {}} onClick={clicked} className="DrawerToggle">
     <div />
     <div />
     <div />

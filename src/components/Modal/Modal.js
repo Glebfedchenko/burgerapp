@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Wrapper from '../../hoc/Wrapper';
+import { lifecycle } from 'recompose';
+import Wrapper from '../Wrapper';
 import Backdrop from '../Backdrop';
 
 const Modal = ({ children, show, modalClosed }) => (
@@ -18,4 +19,8 @@ Modal.propTypes = {
   children: PropTypes.any.isRequired,
 };
 
-export default Modal;
+export default lifecycle({
+  shouldComponentUpdate(nextProps) {
+    return nextProps.show !== this.props.show;
+  },
+})(Modal);
